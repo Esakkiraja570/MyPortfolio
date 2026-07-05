@@ -1,0 +1,31 @@
+.nav{
+   margin: auto;
+   padding: 20px;
+   background-color:navy;
+    font-style: bold; 
+    border-radius: 20PX;
+    opacity: 80%;
+}
+.nav ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.nav ul li a{
+    color:white;
+text-decoration: none;
+padding: 8px 12px;
+position: relative;
+transition: 0.3s;
+
+}
+.nav a:hover {
+  background: white; 
+  border-radius: 20px;
+  color:black;
+  
+}
+.nav1{
+display: none;
+}
