@@ -1,72 +1,114 @@
 import React from "react";
-import p1 from "../../Assets/images/Screenshot 2026-01-09 152943.jpg";
-import p2 from "../../Assets/images/Screenshot 2026-01-09 153103.jpg";
 
 const projects = [
   {
-    title: "Portfolio",
-    image: p1, 
+    icon: "📊",
+    title: "Daily Management System (DMS)",
+    subtitle: "Full Stack Web Application",
     description:
-      "A personal portfolio website showcasing my skills, projects, and experience in full-stack development. It demonstrates my technical knowledge, creativity, and ability to build responsive and user-friendly web applications..",
-    tech: ["Html","CSS3", "JavaScript", "Responsive Design"],
-    link: "https://your-ecommerce-demo-link.com",
-    github: "https://github.com/yourrepo/ecommerce",
+      "A web-based billing management system for small service providers such as milk vendors, newspaper distributors, EMI collectors, and shop owners. Features secure authentication, role-based access, and SMS notifications.",
+    features: [
+      "Admin & Customer modules with secure role-based authentication",
+      "Customer management, daily transaction entry & monthly bill generation",
+      "SMS API integration for automated monthly billing notifications",
+      "RESTful APIs with Spring Boot connected to React.js & MySQL",
+      "Automated bill calculations reducing manual work significantly",
+      "Responsive UI for efficient record management",
+    ],
+    tech: ["Java", "Spring Boot", "React.js", "MySQL", "REST APIs", "SMS API", "HTML", "CSS", "JavaScript"],
+    github: "https://github.com/Esakkiraja570/DailyManagementSystem",
+    live: null,
   },
   {
-    title: "Hospital Website",
-    image: p2, 
+    icon: "🛒",
+    title: "E-Commerce Web Application",
+    subtitle: "Full Stack Project",
     description:
-      "A hospital website provides online access to hospital services, doctor details, appointment booking, and contact information. It improves patient convenience, communication, and healthcare accessibility through a secure and user-friendly interface.",
-    tech: ["Html", "CSS","javascript","boostrap"],
-    link: "https://your-portfolio-demo.com",
-    github: "https://github.com/yourrepo/portfolio",
+      "A full-stack e-commerce platform that allows users to browse products, manage carts, and place orders through a secure and responsive interface with role-based admin and customer modules.",
+    features: [
+      "User authentication & authorization with secure login/registration",
+      "Product management: add, update, delete, and search operations",
+      "Shopping cart & order management systems",
+      "RESTful APIs for seamless frontend-backend communication",
+      "CRUD operations using Spring Data JPA and Hibernate",
+      "Role-based access control for Admin and Customer",
+      "MVC architecture with OOP principles for scalable code",
+    ],
+    tech: ["Java", "Spring Boot", "MySQL", "Spring Data JPA", "Hibernate", "REST APIs", "Git", "GitHub"],
+    github: "https://github.com/Esakkiraja570/Ecommers-Project",
+    live: null,
   },
 ];
 
 const Projects = () => {
   return (
-    <div className="Project">
-      <section className="projects-section">
-        <h1 className="title">Projects</h1>
+    <section className="projects-section" id="projects">
+      <div className="section-wrapper">
+        <h2 className="section-title">Projects</h2>
+        <p className="section-subtitle">
+          Full-stack applications built with real-world business logic
+        </p>
+      </div>
 
-        <div className="projects-container">
-          {projects.map((project, index) => (
-            <div key={index} className="project-card">
-              
-              {/* Project Image */}
-              <img
-                src={project.image}
-                alt={project.title}
-                style={{width:"100%"}}
-              />
-
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-
-              <h4>Tech Used:</h4>
-              <ul>
-                {project.tech.map((t, i) => (
-                  <li key={i}>{t}</li>
-                ))}
-              </ul>
-
-              <div className="project-links">
-                {project.link && (
-                  <a href={project.link} target="_blank" rel="noopener noreferrer">
-                    🔗 Live Demo
+      <div className="projects-grid">
+        {projects.map((project, index) => (
+          <div
+            key={index}
+            className={`project-card animate-fade-in-up animate-delay-${index + 1}`}
+          >
+            {/* Header */}
+            <div className="project-header">
+              <div className="project-icon">{project.icon}</div>
+              <div className="project-links-top">
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link-btn"
+                  >
+                    🐙 GitHub
                   </a>
                 )}
-                {project.github && (
-                  <a href={project.github} target="_blank" rel="noopener noreferrer">
-                    📦 GitHub
+                {project.live && (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link-btn"
+                  >
+                    🔗 Live Demo
                   </a>
                 )}
               </div>
             </div>
-          ))}
-        </div>
-      </section>
-    </div>
+
+            {/* Body */}
+            <div className="project-body">
+              <div style={{ marginBottom: '6px' }}>
+                <span className="chip">{project.subtitle}</span>
+              </div>
+              <h3 className="project-title">{project.title}</h3>
+              <p className="project-desc">{project.description}</p>
+
+              <ul className="project-features">
+                {project.features.map((f, i) => (
+                  <li key={i}>{f}</li>
+                ))}
+              </ul>
+
+              <div className="project-tech-stack">
+                {project.tech.map((t) => (
+                  <span key={t} className="project-tech-tag">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 };
 
